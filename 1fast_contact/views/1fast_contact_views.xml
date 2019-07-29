@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_1fast_contacts" model="ir.actions.act_window">
+        <field name="name">1Fast Contacts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form,activity</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+        <field name="help" type="html">
+          <p class="o_view_nocontent_smiling_face">
+            Create a 1fast contact in your address book
+          </p><p>
+            Odoo helps you to easily track all activities related to a customer.
+          </p>
+        </field>
+    </record>
+    <record id="action_1fast_contacts_view_kanban" model="ir.actions.act_window.view">
+        <field name="sequence" eval="0"/>
+        <field name="view_mode">kanban</field>
+        <field name="view_id" ref="base.res_partner_kanban_view"/>
+        <field name="act_window_id" ref="action_1fast_contacts"/>
+    </record>
+    <record id="action_1fast_contacts_view_tree" model="ir.actions.act_window.view">
+        <field name="sequence" eval="1"/>
+        <field name="view_mode">tree</field>
+        <field name="view_id" ref="base.view_partner_tree"/>
+        <field name="act_window_id" ref="action_1fast_contacts"/>
+    </record>
+    <record id="action_1fast_contacts_view_form" model="ir.actions.act_window.view">
+        <field name="sequence" eval="2"/>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="base.view_partner_form"/>
+        <field name="act_window_id" ref="action_1fast_contacts"/>
+    </record>
+
+    <record id="action_1fast_contacts_summary" model="ir.actions.act_window">
+        <field name="name">1Fast Contacts</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">res.partner</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">activity,kanban,tree,form</field>
+        <field name="search_view_id" ref="base.view_res_partner_filter"/>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Create a 1fast contact in your address book
+            </p><p>
+                Odoo helps you to easily track all activities related to a customer.
+            </p>
+        </field>
+    </record>
+
+    <menuitem name="1Fast Contacts"
+        id="menu_1fast_contacts"
+        sequence="4"
+        web_icon="1fast_contacts,static/description/icon.png"
+        groups="base.group_user,base.group_partner_manager"/>
+
+    <menuitem id="res_partner_menu_1fast_contacts"
+        name="1Fast Contacts"
+        action="action_1fast_contacts"
+        parent="menu_1fast_contacts"
+        sequence="2"/>
+
+</odoo>
